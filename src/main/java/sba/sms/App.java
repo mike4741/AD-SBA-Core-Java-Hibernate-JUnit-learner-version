@@ -3,8 +3,8 @@ package sba.sms;
 import lombok.extern.java.Log;
 import sba.sms.models.Course;
 import sba.sms.models.Student;
-import sba.sms.services.CourseService;
-import sba.sms.services.StudentService;
+import sba.sms.services.CourseServiceImpl;
+import sba.sms.services.StudentServiceImpl;
 import sba.sms.utils.CommandLine;
 
 import java.util.List;
@@ -19,7 +19,7 @@ import java.util.Scanner;
  * App uses <br />
  * Initialize dummy data: {@link CommandLine#addData()} <br />
  * Two models: {@link Student} & {@link Course} <br />
- * Two services: {@link StudentService} & {@link CourseService}
+ * Two services: {@link StudentServiceImpl} & {@link CourseServiceImpl}
  *
  * @author  Jafer Alhaboubi
  * @since sba-core-java-hibernate-junit 1.0
@@ -28,8 +28,8 @@ import java.util.Scanner;
  */
 @Log
 public class App {
-    static final  StudentService studentService = new StudentService();
-    static final  CourseService courseService = new CourseService();
+    static final StudentServiceImpl studentService = new StudentServiceImpl();
+    static final CourseServiceImpl courseService = new CourseServiceImpl();
 
     public static void main(String[] args) {
 
@@ -57,7 +57,7 @@ public class App {
                         System.out.printf("%-2s | %-20s | %s%n", "ID", "Course", "Instructor");
                         if (courseList.isEmpty()) System.out.printf("No courses to view%n");
                         for (Course course : courseList) {
-                            System.out.printf("%-2d | %-20s | %s%n", course.getId(), course.getName(), course.getInstructor());
+                            System.out.printf("%-2d | %-20s | %s%n", course.getCourseId(), course.getName(), course.getInstructor());
                         }
                         System.out.printf("select course #: ");
                         int courseId = input.nextInt();
@@ -84,7 +84,7 @@ public class App {
         List<Course> userCourses = studentService.getStudentCourses(email);
         if (userCourses.isEmpty()) System.out.printf("No courses to view%n");
         for (Course course : userCourses) {
-            System.out.printf("%-2d | %-20s | %s%n", course.getId(), course.getName(), course.getInstructor());
+            System.out.printf("%-2d | %-20s | %s%n", course.getCourseId(), course.getName(), course.getInstructor());
         }
     }
 }

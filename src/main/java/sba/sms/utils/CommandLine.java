@@ -2,19 +2,19 @@ package sba.sms.utils;
 
 import sba.sms.models.Course;
 import sba.sms.models.Student;
-import sba.sms.services.CourseService;
-import sba.sms.services.StudentService;
+import sba.sms.services.CourseServiceImpl;
+import sba.sms.services.StudentServiceImpl;
 
 public class CommandLine {
     private CommandLine() {
         // Utility classes should not have public constructors
     }
 
-    // private static final String PASSWORD = "password";
+     private static final String PASSWORD = "password";
     public static void addData() {
 
-        StudentService studentService = new StudentService();
-        CourseService courseService = new CourseService();
+        StudentServiceImpl studentService = new StudentServiceImpl();
+        CourseServiceImpl courseService = new CourseServiceImpl();
         String instructorPhillip = "Phillip Witkin";
         studentService.createStudent(new Student("reema@gmail.com", "reema brown", PASSWORD));
         studentService.createStudent(new Student("annette@gmail.com", "annette allen", PASSWORD));

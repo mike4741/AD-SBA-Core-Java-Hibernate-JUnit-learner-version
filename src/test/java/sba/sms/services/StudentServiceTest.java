@@ -28,7 +28,7 @@ class StudentServiceTest {
 
 
     @Test
-    void getAllStudents() {
+    void testGetAllStudents() {
 
         List<Student> expected = new ArrayList<>(Arrays.asList(
                 new Student("annette@gmail.com", "annette allen", "password"),

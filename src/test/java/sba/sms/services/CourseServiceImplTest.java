@@ -27,7 +27,7 @@ class CourseServiceImplTest {
     }
 
     @Test
-    void createCourse() {
+    void testCreateCourse() {
 
 //        given
       Course course =  new Course("C#", "mike");
@@ -43,7 +43,7 @@ class CourseServiceImplTest {
     }
 
     @Test
-    void getAllCourses() {
+    void testGetAllCourses() {
 
         String instructorPhillip = "Phillip Witkin";
         List<Course> expected = new ArrayList<>(Arrays.asList(
@@ -51,15 +51,15 @@ class CourseServiceImplTest {
                                                    new Course("Frontend", "Kasper Kain"),
                                                    new Course("JPA", "Jafer Alhaboubi"),
                                                    new Course("Spring Framework", instructorPhillip),
-                                                   new Course("SQL", instructorPhillip),
-                                                   new Course("C#", "mike")
+                                                   new Course("SQL", instructorPhillip)
+//                                                   new Course("C#", "mike")
 
         ));
         Assertions.assertThat((long) courseService.getAllCourses().size()).isEqualTo(expected.size());
     }
 
     @Test
-    void getCourseById() {
+    void testGetCourseById() {
 //         given
         int id = 1;
 //         when

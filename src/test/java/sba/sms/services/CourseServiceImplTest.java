@@ -44,6 +44,7 @@ class CourseServiceImplTest {
 
     @Test
     void testGetAllCourses() {
+        //
 
         String instructorPhillip = "Phillip Witkin";
         List<Course> expected = new ArrayList<>(Arrays.asList(
